@@ -7,6 +7,19 @@ use Saade\FilamentFullCalendar\Widgets\FullCalendarWidget;
 
 class TurnosCalendar extends FullCalendarWidget
 {
+    public function config(): array
+    {
+        return [
+            'headerToolbar' => [
+                'left' => 'prev,next',
+                'center' => 'title',
+                'right' => 'timeGridDay,timeGridWeek,dayGridMonth,listWeek'
+            ],
+            'initialView' => 'timeGridDay',
+            'height' => 'auto',
+        ];
+    }
+
     public function fetchEvents(array $fetchInfo): array
     {
         // El 'with' hace que cargue los nombres de cliente y servicio de forma súper rápida
