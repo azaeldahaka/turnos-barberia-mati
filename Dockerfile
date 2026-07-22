@@ -24,6 +24,9 @@ COPY . .
 # Instalar dependencias de Laravel
 RUN composer install --optimize-autoloader --no-dev
 
+# Publicar assets de Filament
+RUN php artisan filament:assets
+
 # Exponer el puerto
 EXPOSE $PORT
 
