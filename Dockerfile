@@ -1,11 +1,14 @@
 FROM php:8.4-cli
 
-# Instalar dependencias del sistema y extensiones de PHP requeridas para PostgreSQL/Supabase
+# Instalar dependencias del sistema y extensiones de PHP requeridas para PostgreSQL/Supabase, Intl y Zip
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     unzip \
     git \
-    && docker-php-ext-install pdo pdo_pgsql \
+    libicu-dev \
+    libzip-dev \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install pdo pdo_pgsql intl zip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
