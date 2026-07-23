@@ -27,7 +27,7 @@ class AppointmentOverlapTest extends TestCase
     {
         return Service::forceCreate([
             'name' => 'Corte de Prueba',
-            'price' => 1500,
+            'base_price' => 1500,
             'duration' => $duration,
         ]);
     }
@@ -39,7 +39,7 @@ class AppointmentOverlapTest extends TestCase
             'service_id' => $service->id,
             'starts_at' => $startsAt,
             'ends_at' => $endsAt,
-            'final_price' => $service->price,
+            'final_price' => $service->base_price,
             'status' => $status,
         ]);
     }

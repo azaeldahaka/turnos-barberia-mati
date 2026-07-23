@@ -7,14 +7,12 @@ use Saade\FilamentFullCalendar\Widgets\FullCalendarWidget;
 
 class TurnosCalendar extends FullCalendarWidget
 {
+    protected static string $view = 'filament.widgets.turnos-calendar';
+
     public function config(): array
     {
         return [
-            'headerToolbar' => [
-                'left' => 'prev,next today',
-                'center' => 'title',
-                'right' => 'dayGridMonth,timeGridWeek,timeGridDay'
-            ],
+            'headerToolbar' => false,
             'initialView' => 'timeGridWeek',
             'height' => 'auto',
             'slotMinTime' => '09:00:00',
